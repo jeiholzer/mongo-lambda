@@ -29,8 +29,11 @@ bedrock.events.on('bedrock.started', callback => {
         Payload: JSON.stringify(query)
       };
       lambda.invoke(params, (err, result) => {
+        if(err) {
+          console.error('ERROR', err);
+        }
         console.log('LAMBDA-FIND', JSON.stringify(result, null, 2));
-        callback();
+        callback(err);
       });
     }]
   }, callback);
