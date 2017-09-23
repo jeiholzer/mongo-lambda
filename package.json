@@ -19,7 +19,7 @@
   "dependencies": {
     "async": "^2.5.0",
     "aws-sdk": "^2.122.0",
-    "bedrock": "^1.7.0",
+    "bedrock": "digitalbazaar/bedrock#noPosix",
     "bedrock-mongodb": "^3.2.3",
     "uuid": "^3.1.0"
   }
