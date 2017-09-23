@@ -4,6 +4,8 @@ const database = require('bedrock-mongodb');
 const uuid = require('uuid/v4');
 const AWS = require('aws-sdk');
 
+AWS.config.update({region: 'us-east-1'});
+
 require('./config');
 
 const lambda = new AWS.Lambda();
