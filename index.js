@@ -4,6 +4,8 @@ const database = require('bedrock-mongodb');
 const uuid = require('uuid/v4');
 const AWS = require('aws-sdk');
 
+require('./config');
+
 const lambda = new AWS.Lambda();
 
 bedrock.events.on('bedrock-mongodb.ready', callback => async.auto({
