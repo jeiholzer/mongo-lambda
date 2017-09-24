@@ -42,6 +42,7 @@ bedrock.events.on('bedrock.started', () => {
       });
     }]
   }, err => {
+    console.log('EEEEEEEEE', err);
     bedrock.exit(err);
   });
 });
