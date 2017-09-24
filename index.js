@@ -14,7 +14,7 @@ bedrock.events.on('bedrock-mongodb.ready', callback => async.auto({
   openCollections: callback => database.openCollections(['lambda'], callback)
 }, err => callback(err)));
 
-bedrock.events.on('bedrock.started', callback => {
+bedrock.events.on('bedrock.started', () => {
   const p1 = uuid();
   const p2 = uuid();
   const query = {p1};
@@ -36,11 +36,14 @@ bedrock.events.on('bedrock.started', callback => {
         if(err) {
           console.error('ERROR', err);
         }
-        console.log('LAMBDA-FIND', result);
+        const resultJson = JSON.parse(result);
+        console.log('LAMBDA-FIND', JSON.stringify(resultJson, null, 2));
         callback(err);
       });
     }]
-  }, callback);
+  }, err => {
+    bedrock.exit(err);
+  });
 });
 
 bedrock.start();
