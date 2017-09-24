@@ -28,6 +28,7 @@ bedrock.events.on('bedrock.started', callback => {
     lambda: ['insert', (results, callback) => {
       const params = {
         FunctionName: 'mongoLambda',
+        InvocationType: 'Event',
         Payload: JSON.stringify(query)
       };
       lambda.invoke(params, (err, result) => {
