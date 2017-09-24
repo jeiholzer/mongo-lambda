@@ -36,8 +36,8 @@ bedrock.events.on('bedrock.started', () => {
         if(err) {
           console.error('ERROR', err);
         }
-        // const resultJson = JSON.parse(result);
-        console.log('LAMBDA-FIND', result);
+        const resultJson = JSON.parse(result);
+        console.log('LAMBDA-FIND', JSON.stringify(resultJson, null, 2));
         callback(err);
       });
     }]
